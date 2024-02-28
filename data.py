@@ -82,8 +82,8 @@ def create_train_data_dict_for_all_clients(clients_dict, x_data, y_data):
 #----------------------------------------------------------------------
 def MNIST_PROCESS(num_of_clients):
   transformation = transforms.Compose([transforms.ToTensor(), torch.flatten])
-  train_data = datasets.MNIST(root='./MNIST', train=True, download=True, transform=transformation )
-  test_data = datasets.MNIST(root='./MNIST', train=False, download=True, transform=transformation )
+  train_data = datasets.MNIST(root='./Data/MNIST', train=True, download=True, transform=transformation )
+  test_data = datasets.MNIST(root='./Data/MNIST', train=False, download=True, transform=transformation )
 
   train_loader= torch.utils.data.DataLoader(train_data, batch_size= 60000) 
   test_loader= torch.utils.data.DataLoader(test_data, batch_size= 100) 
@@ -122,8 +122,8 @@ def CIFAR10_PROCESS(num_of_clients):
     transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010))])
 
   # choose the training and test datasets
-  train_data = datasets.CIFAR10('./CIFAR10', train=True, download=True, transform=transform_train)
-  test_data = datasets.CIFAR10('./CIFAR10', train=False, download=True, transform=transform_test)
+  train_data = datasets.CIFAR10('./Data/CIFAR10', train=True, download=True, transform=transform_train)
+  test_data = datasets.CIFAR10('./Data/CIFAR10', train=False, download=True, transform=transform_test)
 
   train_loader= torch.utils.data.DataLoader(train_data, batch_size= 50000) 
   test_loader= torch.utils.data.DataLoader(test_data, batch_size= 100) 
