@@ -12,4 +12,4 @@ source ~/projects/def-benliang/kalarde/ENV2/bin/activate
 cd ~/projects/def-benliang/kalarde/BeamformingDeviceSelecetionDesignInFLwithOTA
 
 
-python main.py -myseed 0 -dataset 'MNIST' -method ${ME} 
+python main.py -myseed 0 -dataset 'MNIST' -method 'DC'
