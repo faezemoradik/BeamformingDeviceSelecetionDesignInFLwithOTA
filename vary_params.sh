@@ -6,7 +6,7 @@
 #SBATCH --mail-type=ALL
 
 
-for me in 'SelectAll' 'TopOne' 'DC'; do
+for me in 'SelectAll' 'TopOne' 'Gibbs' 'GSDS' 'ADSBF' 'DC'; do
   sbatch --export=ME=${me} job.sh
 done
  

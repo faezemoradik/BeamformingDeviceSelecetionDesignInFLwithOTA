@@ -53,7 +53,7 @@ def feasibility_DC( initial_point, channel_matrix, gamma, maxiter):
   constraints = [cp.real(cp.trace(M_var))-1 >= 0]
   constraints += [M_var >> 0]
   constraints += [cp.real(cp.trace(M_var))-gamma[k]*cp.real(np.conj(channel_matrix[k]).T@M_var@channel_matrix[k])<=0 for k in range(K)]
-  cost= (cp.real(cp.trace((np.eye(N)-M_partial.channel_matrix)@M_var)))*1
+  cost= (cp.real(cp.trace((np.eye(N)-M_partial.H)@M_var)))*1
 
   prob = cp.Problem(cp.Minimize(cost),constraints)
 
@@ -116,7 +116,7 @@ def device_selection_DC(N, K, channel_matrix, gamma, maxiter):
   constraints += [M_var >> 0]
 
   constraints+= [cp.real(cp.trace(M_var))-gamma[k]*cp.real(np.conj(channel_matrix[k]).T@M_var@channel_matrix[k])-x_var[k]<=0 for k in range(K)]
-  cost= (cp.norm(x_var,1)-x_partial.channel_matrix@x_var + cp.real(cp.trace((np.eye(N)-M_partial.channel_matrix)@M_var)))*1
+  cost= (cp.norm(x_var,1)-x_partial.H@x_var + cp.real(cp.trace((np.eye(N)-M_partial.H)@M_var)))*1
 
   prob = cp.Problem(cp.Minimize(cost), constraints)
 
