@@ -1,6 +1,4 @@
 import numpy as np
-import math
-import cvxpy as cp
 from SCA import SCA
 
 #------------------------------------------------------------
