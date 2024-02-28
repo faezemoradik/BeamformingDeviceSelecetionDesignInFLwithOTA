@@ -18,7 +18,7 @@ def get_parameter():
   return args
 
 #------------------------------------------------------------
-def main(args):
+def main():
   if torch.cuda.is_available():
     print("CUDA is available")
     os.environ["CUDA_VISIBLE_DEVICES"] = "0"
@@ -26,7 +26,7 @@ def main(args):
     print("CUDA is not available")
 
   
-  # args = get_parameter()
+  args = get_parameter()
   dataset= args.dataset
   method= args.method
   myseed = args.myseed
@@ -57,14 +57,12 @@ def main(args):
     learning_rate = 0.01
 
 
-  Channel_dict = dict()
   performance = dict()
 
   np.random.seed(myseed)
   torch.random.manual_seed(myseed)
 
   channel_matrix, scaled_channel_matrix = Channel_Condition(r_min, r_max, num_of_clients, num_of_antennas, clients_num_sample)
-  Channel_dict[str(myseed)] = channel_matrix
   train_acc_list, test_acc_list, train_loss_list, test_loss_list, transmit_powers, run_time, devices_selection_array = NonIdealFedSGD(x_train_dict, y_train_dict, train_loader, 
                                                                                                                                       test_loader, model_name, num_epoch, num_of_clients, 
                                                                                                                                       clients_num_sample, num_of_antennas, learning_rate, 
@@ -86,4 +84,4 @@ def main(args):
     pickle.dump(performance, f)
 
 #-------------------------------------------------------------------------
-
+main()

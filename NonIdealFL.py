@@ -283,7 +283,7 @@ def NonIdealFedSGD(x_train_dict, y_train_dict, train_loader, test_loader, model_
     num_iteration = 50
     gammas = math.pow(10, 94/10)*np.ones(num_of_clients)
     t1= time.time()
-    devices_selection_array, f_beam = DC_NORIS(num_of_antennas, num_of_clients, channel_matrix, gammas, num_iteration)
+    f_beam, devices_selection_array = DC_NORIS(num_of_antennas, num_of_clients, channel_matrix, gammas, num_iteration)
     t2= time.time()
 
   for i in range(num_epoch):

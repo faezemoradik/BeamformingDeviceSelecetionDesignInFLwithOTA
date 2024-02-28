@@ -23,8 +23,7 @@ def GibbsSampling(scaled_channel_matrix, channel_matrix, noise_variance, P_zero,
   beta =1 
 
   for j in range(num_iteration):
-    print('####################')
-    print('Iteration'+ str(j+1), ':')
+    print('--------------','Iteration'+str(j+1),': ----------------')
     F_set= [] 
     optimal_values = [] 
     F_set.append(1*x)

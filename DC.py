@@ -200,6 +200,6 @@ def DC_NORIS(num_of_antennas, num_of_clients, channel_matrix, gamma , maxiter):
     beam_forming= channel_matrix[0]/np.linalg.norm(channel_matrix[0])
     device_selection[0] =1
 
-  return device_selection, beam_forming
+  return beam_forming, device_selection
 
 #----------------------------------------------------------------------
