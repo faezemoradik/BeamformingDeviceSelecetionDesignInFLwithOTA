@@ -25,7 +25,6 @@ def main():
   else:
     print("CUDA is not available")
 
-  
   args = get_parameter()
   dataset= args.dataset
   method= args.method
